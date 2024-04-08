@@ -19,7 +19,7 @@ watch(accessToken, async (at) => {
 </script>
 
 <template>
-  <textarea v-model="accessToken" style="width: 400px; height: 50px;"></textarea>
+  <textarea v-model="accessToken"></textarea>
   <br><br>
   Active: <input type="checkbox" v-model="chatActive" />
   <div class="chat-container" v-if="chatActive">

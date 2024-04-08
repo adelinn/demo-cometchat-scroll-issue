@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onBeforeMount, onUnmounted } from 'vue';
+import { ref, watch } from 'vue';
 import { CometChatMessages } from "@cometchat/chat-uikit-vue";
 import { Group, CometChat } from "@cometchat/chat-sdk-javascript";
 
@@ -12,14 +12,6 @@ const chatGroup = ref<Group>();
 watch(()=> props.chatUid, async ()=> {
   chatGroup.value = (await CometChat.getGroup(props.chatUid)) ?? undefined;
 }, { immediate: true })
-
-onBeforeMount(async () => {
-  CometChat.connect();
-});
-
-onUnmounted(async () => {
-  CometChat.disconnect();
-});
 </script>
 
 <template>
